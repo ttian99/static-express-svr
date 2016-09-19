@@ -5,12 +5,12 @@ var app = express();
 var dir = '/dist';
 
 // 判断文件路径是否存在
-if (!fs.existsSync(dir)) {
-	fs.mkdirSync(dir);
+if (!fs.existsSync(__dirname + dir)) {
+	fs.mkdirSync(__dirname + dir);
 }
 
 app.use('/', express.static(__dirname + dir));
 
-http.createServer(app).listen('8011', function() {
+http.createServer(app).listen('80', function() {
 	console.log('-- http server start at: 80 --');
 })
